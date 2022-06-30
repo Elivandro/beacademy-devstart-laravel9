@@ -100,4 +100,18 @@ class UserController extends Controller
         // 123456-> $argon2i$v=19$m=65536,t=4,p=1$cDVaLzFad01qU2dtL3k0Tw$4gsaMQmcQ0G0eBq89KHEYjptrtbmKLwm14VW8PBlQFs
     }
 
+    public function destroy($id)
+    {
+        if(!$user = $this->model->find($id)){
+
+            return redirect()->route("users.index");
+
+        }
+
+        $user->delete();
+
+        return redirect()->route("users.index");
+
+    }
+
 }

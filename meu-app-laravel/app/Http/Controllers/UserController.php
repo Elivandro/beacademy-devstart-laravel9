@@ -63,11 +63,41 @@ class UserController extends Controller
 
     }
 
-    public function delete($id)
+    public function edit($id)
     {
 
-        dd($id);
+        if(!$user = $this->model->find($id)){
 
+            return redirect()->view("users.index");
+
+        }
+
+        return view("users.edit", compact("user"));
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        if(!$user = $this->model->find($id)){
+
+            return redirect()->route("users.index");
+
+        }
+
+        $data = $request->only('name', 'email');
+
+        if($request->password){
+
+            $data['password'] = password_hash($request->password, PASSWORD_ARGON2I);
+
+        }
+
+        $user->update($data);
+
+        return view("users.show", compact("user"));
+
+        // 123456-> $argon2i$v=19$m=65536,t=4,p=1$M1J2RGFtQzA3Sk1lWExHcQ$BI7WoFZsZF0Z4eTEAtOBgi5wtKnADHBaxQkWLJkcWwE
+        // 123456-> $argon2i$v=19$m=65536,t=4,p=1$cDVaLzFad01qU2dtL3k0Tw$4gsaMQmcQ0G0eBq89KHEYjptrtbmKLwm14VW8PBlQFs
     }
 
 }

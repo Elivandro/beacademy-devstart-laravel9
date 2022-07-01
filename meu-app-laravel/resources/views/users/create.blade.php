@@ -4,6 +4,16 @@
 @section("content")
 <div class="container mt-5">
     <h1>Novo usuario</h1>
+
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+                @foreach($errors->all() as $error)
+                        {{ $error }}
+                        <br/>
+                @endforeach
+        </div>
+    @endif
+
     <form action="{{ route('users.store') }}" method="POST">
         @csrf
         <div class="mb-3">

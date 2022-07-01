@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\StoreUpdateUserFormRequest;
 
 class UserController extends Controller
 {
@@ -46,7 +46,7 @@ class UserController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateUserFormRequest $request)
     {
 
         // $user = new User;
@@ -76,7 +76,7 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreUpdateUserFormRequest $request, $id)
     {
         if(!$user = $this->model->find($id)){
 
@@ -96,8 +96,6 @@ class UserController extends Controller
 
         return view("users.show", compact("user"));
 
-        // 123456-> $argon2i$v=19$m=65536,t=4,p=1$M1J2RGFtQzA3Sk1lWExHcQ$BI7WoFZsZF0Z4eTEAtOBgi5wtKnADHBaxQkWLJkcWwE
-        // 123456-> $argon2i$v=19$m=65536,t=4,p=1$cDVaLzFad01qU2dtL3k0Tw$4gsaMQmcQ0G0eBq89KHEYjptrtbmKLwm14VW8PBlQFs
     }
 
     public function destroy($id)

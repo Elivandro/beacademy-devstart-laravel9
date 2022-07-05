@@ -2,7 +2,7 @@
 @section("title", "Criar Usario")
 
 @section("content")
-<div class="container mt-5">
+<div class="container w-50 mt-5">
     <h1>Novo usuario</h1>
 
     @if($errors->any())
@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('users.store') }}" method="POST">
+    <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <input type="nome" name="name" class="form-control" placeholder="digite seu nome">
@@ -24,6 +24,9 @@
         </div>
         <div class="mb-3">
             <input type="password" name="password" class="form-control" placeholder="digite sua senha"/> 
+        </div>
+        <div class="mb-3">
+            <input type="file" name="image" id="image" class="form-control form control-md" />
         </div>
         <button type="submit" class="btn btn-outline-dark btn-sm">Submit</button>
         <a href="{{ route('users.index') }}" class="btn btn-outline-primary btn-sm">VOLTAR</a>

@@ -56,7 +56,14 @@ class UserController extends Controller
         // $user->save();
 
         $data = $request->all();
-        $data['password'] = password_hash($request->password, PASSWORD_ARGON2I);
+        $data['password']   = password_hash($request->password, PASSWORD_ARGON2I);
+
+        if($request->image){
+            $file               = $request['image'];
+            $path               = $file->store('profile', 'public');
+            $data['image']      = $path;
+        }
+
         $this->model->create($data);
 
         return redirect()->route("users.index");

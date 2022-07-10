@@ -3,8 +3,22 @@
 
 @section("content")
     <div class="container mt-5">
-        <h3 class="text-center">Usuarios</h3>
-        <a href="{{ route('users.create') }}" class="btn btn-outline-primary btn-sm mb-3">Novo usuario</a>
+        <h3 class="text-center">Todos os Usuarios</h3>
+        <div>
+            <div class="row">
+                <div class="col-sm mt-2 mb-5">
+                    <a href="{{ route('users.create') }}" class="btn btn-outline-primary btn-sm mb-3">Novo usuario</a>
+                </div>
+                <div class="col-sm mt-2 mb-5">
+                    <form action="{{ route('users.index') }}" method="GET">
+                        <div class="input-group">
+                            <input type="search" name="search" class="form-control rounded" placeholder="digite sua busca"/>
+                            <button type="submit" class="btn btn-outline-primary">Buscar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
             <table class="table table-dark table-striped table-hover table-sm">
                 <thead>
                     <tr>

@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('team_user', function (Blueprint $table) {
             $table->id();
-            $table->string('address');
-            $table->string('postal_code');
-            $table->string('city');
-            $table->string('country');
-            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
-            $table->timestamps();
+            $table->foreignId('user_id')
+            ->constrained('users')
+            ->onUpdate('CASCADE')
+            ->onDelete('CASCADE');
+            $table->foreignId('team_id')
+            ->constrained('teams')
+            ->onUpdate('CASCADE')
+            ->onDelete('CASCADE');
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address');
+        Schema::dropIfExists('team_user');
     }
 };

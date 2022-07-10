@@ -12,6 +12,7 @@
                         <th>ID</th>
                         <th>NOME</th>
                         <th>EMAIL</th>
+                        <th>POSTAGENS</th>
                         <th colspan="2">DATA DE CADASTRO</th>
                     </tr>
                 </thead>
@@ -32,7 +33,8 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->created_at }}</td>
+                        <td><a href="{{ route('posts.show', $user->id) }}" class="btn btn-outline-light btn-sm">postagens {{ $user->posts->count() }}</a></td>
+                        <td>{{ date('d/m/Y - H:i', strtotime($user->created_at)) }}</td>
                         <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-light btn-sm">VISUALIZAR</a></td>
                     </tr>
                     @endforeach

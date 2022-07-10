@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('address');
-            $table->string('postal_code');
-            $table->string('city');
-            $table->string('country');
-            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
+            $table->string('title');
+            $table->text('post');
+            $table->foreignId('user_id')->constrained('users')
+            ->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address');
+        Schema::dropIfExists('posts');
     }
 };

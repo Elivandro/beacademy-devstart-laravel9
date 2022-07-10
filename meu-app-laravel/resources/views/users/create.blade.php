@@ -28,7 +28,7 @@
         <div class="mb-3">
             <input type="file" name="image" id="image" class="form-control form control-md" />
         </div>
-        <button type="submit" class="btn btn-outline-dark btn-sm">Submit</button>
+        <button type="submit" class="btn btn-outline-dark btn-sm">NOVO</button>
         <a href="{{ route('users.index') }}" class="btn btn-outline-primary btn-sm">VOLTAR</a>
     </form>
 </div>

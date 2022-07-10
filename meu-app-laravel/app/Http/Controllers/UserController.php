@@ -20,6 +20,8 @@ class UserController extends Controller
 
         $users = User::paginate(5);
 
+
+        
            return view('users.index', compact('users'));
 
     }
@@ -36,6 +38,7 @@ class UserController extends Controller
         }
 
         return view('users.show', compact('user'));
+        // return view('users.show', compact('user'));
 
     }
 

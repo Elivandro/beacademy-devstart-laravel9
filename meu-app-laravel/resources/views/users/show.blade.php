@@ -12,6 +12,7 @@
                     <th>ID</th>
                     <th>NOME</th>
                     <th>EMAIL</th>
+                    <th>TEAM</th>
                     <th colspan="2">DATA DE CADASTRO</th>
                 </tr>
             </thead>
@@ -29,6 +30,8 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td><a href="{{ route('team.show', $user->id) }}" class="btn btn-outline-warning btn-sm">VER</a>
+</td>
                     <td>{{ $user->created_at }}</td>
                     <td>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">

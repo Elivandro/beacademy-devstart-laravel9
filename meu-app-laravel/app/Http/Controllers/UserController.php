@@ -101,6 +101,11 @@ class UserController extends Controller
             $data['password'] = password_hash($request->password, PASSWORD_ARGON2I);
 
         }
+        if($request->image){
+            $file               = $request['image'];
+            $path               = $file->store('profile', 'public');
+            $data['image']      = $path;
+        }
 
         $user->update($data);
 

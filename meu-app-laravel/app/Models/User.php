@@ -23,7 +23,7 @@ class User extends Authenticatable
         'image',
         'password',
         'image',
-        'isAdmin',
+        'is_dmin',
         'remember_token',
         'email_verified_at',
     ];

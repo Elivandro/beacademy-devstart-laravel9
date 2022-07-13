@@ -17,10 +17,10 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user() && Auth::user()->isAdmin == 1){
+        if(Auth::user() && Auth::user()->is_admin == 1){
             return $next($request);
         }
 
-        return redirect('home')->with('error', 'você não tem permissão de administraodr');
+        return redirect()->route('users.index')->with('error', 'você não tem permissão de administraodr');
     }
 }

@@ -69,7 +69,8 @@ class UserController extends Controller
 
         $this->model->create($data);
 
-        return redirect()->route("users.index");
+
+        return redirect()->route("users.index")->with('create', "Usuario cadastrado com sucesso!");
 
     }
 
@@ -107,9 +108,12 @@ class UserController extends Controller
             $data['image']      = $path;
         }
 
+        $data['is_admin']   = $request->is_admin ? 1 : 0;
+
         $user->update($data);
 
-        return view("users.show", compact("user"));
+        // return view("users.show", compact("user"));
+        return redirect()->route("users.show", ['id' => $user->id])->with('edit', "Usuario atualizado com sucesso!");
 
     }
 
@@ -123,7 +127,9 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route("users.index");
+        // return redirect()->route("users.index");
+        return redirect()->route("users.index")->with('destroy', "Usuario deletado com sucesso!", $user);
+
 
     }
 

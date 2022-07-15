@@ -29,6 +29,14 @@
         <div class="mb-3">
             <input type="file" name="image" id="image" class="form-control form control-md" />
         </div>
+        @if(Auth::user()->is_admin == 2)
+        <div class="mb-3">
+            <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Definir Administrador
+            </label>
+        </div>
+        @endif
         <button type="submit" class="btn btn-outline-dark btn-sm">Submit</button>
         <a href="{{ route('users.index') }}" class="btn btn-outline-primary btn-sm">VOLTAR</a>
     </form>

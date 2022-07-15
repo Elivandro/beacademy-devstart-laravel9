@@ -3,6 +3,18 @@
 
 @section("content")
     <div class="container mt-5">
+        @if(session()->has('create'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Atenção!</strong> {{ session()->get('create') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        @if(session()->has('destroy'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Atenção!</strong> {{ session()->get('destroy') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <h3 class="text-center">Todos os Usuarios</h3>
         <div>
             <div class="row">

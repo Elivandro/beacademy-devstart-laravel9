@@ -3,6 +3,12 @@
 
 @section("content")
 <div class="container mt-5">
+        @if(session()->has('edit'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Atenção!</strong> {{ session()->get('edit') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <h3 class="text-center">Usuario {{ $user->name }}</h3>
         <a href="{{ route('users.index') }}" class="btn btn-outline-primary btn-sm mb-3">VOLTAR</a>
         <table class="table table-dark table-striped table-hover table-sm">

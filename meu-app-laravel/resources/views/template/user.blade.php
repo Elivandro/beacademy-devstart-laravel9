@@ -33,7 +33,7 @@
                                     <li class="nav-item">
                                         <a href="#" class="nav-link text-white">{{ Auth::user()->name }}</a>
                                     </li>
-                                    @if(Auth::user()->is_admin == 1 && Auth::user()->is_admin == 2)
+                                    @if(Auth::user()->is_admin == 1)
                                     <li class="nav-item active">
                                         <a href="{{ route('admin') }}" class="nav-link text-white">Dashboard</a>
                                     </li>

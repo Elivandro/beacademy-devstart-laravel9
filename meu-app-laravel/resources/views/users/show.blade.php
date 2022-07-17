@@ -30,7 +30,7 @@
                         </td>
                     @else
                         <td>
-                            <img src="{{ asset('storage/profile/null-avatar.jpg') }}" width="40px" class="rounded-circle"/>
+                            <img src="{{ asset('storage/profile/avatar.jpg') }}" width="40px" class="rounded-circle"/>
                         </td>
                     @endif
                     <td>{{ $user->id }}</td>

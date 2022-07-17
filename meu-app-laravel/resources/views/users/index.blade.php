@@ -39,7 +39,8 @@
                         <th>NOME</th>
                         <th>EMAIL</th>
                         <th>POSTAGENS</th>
-                        <th colspan="2">DATA DE CADASTRO</th>
+                        <th>DATA DE CADASTRO</th>
+                        <th colspan="2">Preço</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,7 +53,7 @@
                             </td>
                         @else
                             <td>
-                                <img src="{{ asset('storage/profile/null-avatar.jpg') }}" width="40px" class="rounded-circle"/>
+                                <img src="{{ asset('storage/profile/avatar.jpg') }}" width="40px" class="rounded-circle"/>
                             </td>
                         @endif
 
@@ -60,7 +61,8 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td><a href="{{ route('posts.show', $user->id) }}" class="btn btn-outline-light btn-sm">postagens {{ $user->posts->count() }}</a></td>
-                        <td>{{ date('d/m/Y - H:i', strtotime($user->created_at)) }}</td>
+                        <td>{{ formatDateTime($user->created_at) }}</td>
+                        <td>{{ formatMoney(5000) }}</td>
                         <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-light btn-sm">VISUALIZAR</a></td>
                     </tr>
                     @endforeach

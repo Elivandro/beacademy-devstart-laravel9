@@ -1,3 +1,7 @@
+@extends('template.user')
+@section('title', 'Confirmar senha')
+
+@section('content')
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">

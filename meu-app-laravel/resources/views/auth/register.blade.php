@@ -1,5 +1,5 @@
 @extends('template.user')
-@section('title', 'home')
+@section('title', 'Criar conta')
 
 @section('content')
 <x-guest-layout>
